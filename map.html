@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Visualizing Cascading Delays</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<!-- Note: The "styleN" class below should match that of the banner element. -->
+					<header id="header" class="alt style2">
+						<a href="index.html" class="logo"><strong>PR</strong></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="#portfolio">Portfolio</a></li>
+							<li><a href="#work">Work</a></li>
+							<li><a href="#contactme">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style2">
+						<div class="inner">
+							<span class="image">
+								<img src="images/Map.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>Visualizing Cascading Delays</h1>
+							</header>
+							<div class="content">
+								<p>Data visualization of airlines in the US during the year 2007</p>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>Overview</h2>
+									</header>
+									<p>Cascading Delays is defined as the departure delay caused at the origin airport, thereby causing an arrival delay at a connecting airport which in turn causes an arrival delay at the destination airport. For example, a flight moving from NY to CA has connections at TX. If the flight is delayed by 60mins at NY, which causes a delay of 45mins at TX in turn causing a delay of 20mins when the flight arrives at CA is called as Cascading Delays. A fellow classmate and I visualized the airplane dataset for the year 2007 to identify cities in which the cascading delays are maximum as well as cities in which the delays are minimum.</p>
+
+									<p><b>Role:</b> Data analyst, UX Researcher <br/> <b> Methods:</b> Visualization Techniques, Analysing Dataset, DataMaps, D3.js <br/> <b>Duration:</b> 8 weeks</p>
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="two" class="spotlights">
+								<section>
+									<a class="image">
+										<img src="images/map01.jpg" alt="" data-position="center center" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>The Goal</h3>
+											</header>
+											<p>The airplane dataset is huge and has multiple data points which makes it challenging to visualize the important features of this data. The aim of this term project is to find effective ways of visualizing this dataset such that it could help passengers select days with least delays or could enable the airport authorities to see delay patterns and make necessary changes. Also, for someone interested in studying flights in the US, these visualizations could also help gain insights into how flying patterns of people in the US have altered over time.
+											<br/><br/>The dataset contains details of all the flights within the US from 1987 to 2008. Two broad categories of data points that can be looked into are delay patterns and flying patterns.</p>
+										</div>
+									</div>
+								</section>
+							</section>
+
+						<!-- Three -->
+							<section id="three">
+								<div class="inner">
+									<header class="major">
+										<h2>Problem Discovery and Research Questions</h2>
+									</header>
+									<p>It is observed that cascading delays were highly frequent in the US, but there are no proper visualization methods through which the users can understand which flights to choose with minimum delay. Taking this as our problem statement, we brainstormed to identify the users and their pain points.
+									<br/>The target audience for this data visualization project are data analysts, airport and airlines crew, and flyers(passengers) and the goal for this target audience is to view and select flights that cause minimum delays at the connecting airport due to delays in origin airport.
+									<br/>We focus on answering the following questions through this visualization project -
+										<ol><li>Help users observe flying patterns as well as delay patterns in flights in the US</li>
+										<li>Is there a pattern of delays at particular airports?</li>
+										<li>Do delays cascade, that is, do delays at one airport lead to delays at other airports?</li></ol></p>
+								</div>
+							</section>
+							<section id="three">
+								<div class="inner">
+									<header class="major">
+										<h2>Background Research and Initial Designs</h2>
+									</header>
+									<p>To research more on how to visualize the proposed questions using the airplane dataset, we performed an extensive literature review. Different kinds of research that has already been done on visualizing multidimensional and temporal data, visualizing airplane dataset and notions of storytelling for any data visualization project were all studied.
+									<br/><br/>Post our literature review, we sketched out different ways in which we can visualize flight patterns (trends in delays and flight patterns) and cascading delays.</p>
+										<a class="image">
+										<img class="image main" src="images/map02.png" alt=""/>
+									</a>
+									<br/><b>Development of Visualization</b>
+									<br/>We initially started developing this visualization project with a dummy dataset to show animation of flight patterns across the US in the year 2007. The Datamaps library was used to plot the US map and to display the flight patterns in the form of arcs. For instance, for a flight moving from MD (Maryland) to CA (California) , an animated arc is drawn starting from MD and ending at CA.
+									<a class="image">
+										<img class="image main" src="images/map03.png" alt=""/>
+									</a>
+									<br/>
+									Post visualizing flight patterns in the US, we aimed to focus on visualizing cascading delays.Using a dataset for the year 2007, we visualized two levels of delays (first level being the origin airport for the initial set of delays and the second level being the delays caused in other airports due to delays in the origin airport). The origin airport is chosen by the user from a select set of ten major states. The difference between the origin and the destination points in these arcs are distinguished by using gradients. The darker shade corresponds to the origin while the lighter shade indicates the destination state. In the first level, we chose a timeframe of 5PM to 8PM to show the delays.
+									<a class="image">
+										<img class="image main" src="images/map04.png" alt=""/>
+									</a>
+									<br/><b>Design Iterations</b><br/>
+									We observed that the gradient mappings did not occur consistently and there were significant bugs in the visualization which were found during user testing. We incorporated all these findings in our final implementation. To give our users freedom of choosing the time frame and to observe at which timeframe the delays were maximum, we implemented a time slider and a bar chart that shows the average delays caused in the cities. The user also has the freedom to select the day of the week in which they wish to view the delay information. Once the user chooses an origin airport by clicking on a particular state(one out of the 10 major states), the two levels of delays are visualized, along with a bar chart to show average delays at a particular timeframe.The weight of each arc in the first level of delays indicates the delay minutes.Through our visualization, we help users understand flight patterns being affected due to cascading delays and find out in which states the delays are being caused maximum.
+									<a class="image">
+										<img class="image main" src="images/map05.png" alt=""/>
+									</a>
+									<br/><b>Final Visualization</b>
+									<a class="image">
+										<img class="image main" src="images/map06.png" alt=""/>
+										<img class="image main" src="images/map07.png" alt=""/>
+									</a>
+								</div>
+							</section>
+							<section id="three">
+								<div class="inner">
+									<header class="major">
+										<h2>Conclusion & Key Takeaways</h2>
+									</header>
+									<p>Through this visualization, we were able to identify the following - Cities in which the delays were maximum and minimum, the average delay(in minutes)caused due to delay in origin airport, and finally, the average delay(in minutes)at other airports caused due to delay in origin airport. This would help users understand how their delays would be when looking to book flights or for flight authorities wanting a change in flight schedule.</p>
+
+									<br/><b>Visualization Video</b><br/>
+									<iframe class="responsive" style="width:1200px; height:700px;" src="https://www.youtube.com/embed/B068VUrUzH8" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe><br/><br/>
+								</div>
+							</section>
+					</div>
+
+				
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
